@@ -31,16 +31,18 @@ public class Article {
     @Column(nullable = false)
     private String author;
 
-    public Article(String title, String content, String author,  String password) {
-        this.title = title;
-        this.content = content;
-        this.author = author;
-        this.password = password;
-        this.createdAt = LocalDateTime.now();
-    }
+    @Column(nullable = false)
+    private int commentCount;
 
     public void update(String title, String content){
-        this.title=title;
-        this.content=content;
+        this.title = title;
+        this.content = content;
+    }
+
+    public void increaseCommentCount() {
+        commentCount++;
+    }
+    public void decreaseCommentCount() {
+        if(commentCount>0) commentCount--;
     }
 }
