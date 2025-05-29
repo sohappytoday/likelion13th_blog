@@ -33,11 +33,11 @@ public class ArticleController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ApiResponse> ReadArticle(@PathVariable long id){
-        ArticleResponse response=articleService.getArticle(id);
-        return ResponseEntity.ok(new ApiResponse(true,200,"게시글 조회 성공", response));
-
+    public ResponseEntity<ApiResponse> readArticle(@PathVariable Long id){
+        ArticleDetailResponse response = articleService.getArticle(id);
+        return ResponseEntity.ok(new ApiResponse(true, 200, "게시글 조회 성공", response));
     }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<ApiResponse> updateArticle(@PathVariable long id,
